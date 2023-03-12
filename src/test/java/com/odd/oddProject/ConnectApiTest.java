@@ -26,4 +26,10 @@ public class ConnectApiTest {
 
     }
 
+    @Test
+    @DisplayName("KaokaoOpenApi 연결 테스트")
+    void connectKaokaoApi() {
+
+    }
+
 }

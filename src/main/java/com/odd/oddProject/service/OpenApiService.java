@@ -8,11 +8,12 @@ import java.util.List;
 
 @Service
 public class OpenApiService {
-
+    @Autowired
     OpenApiManagerDto openApiManagerDto;
     List<OpenApiManagerDto> openApiManagerList;
-    private List<OpenApiManagerDto> getOpenApiGuroData(){
+    private List<?> getOpenApiData(){
 
         return openApiManagerList;
     }
+    private
 }
