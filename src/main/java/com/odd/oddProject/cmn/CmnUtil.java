@@ -62,7 +62,7 @@ public class CmnUtil {
         String restUrl = "https://dapi.kakao.com/v2/local/search/address.json?analyze_type=exact&page=1&size=10&query=" + encode;
         URI uri = new URI(restUrl);
 
-        ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate.exchange(uri, HttpMethod.POST, entity, String.class);
 
         JSONParser jsonParser = new JSONParser();
         JSONObject body = (JSONObject) jsonParser.parse(response.getBody().toString());
