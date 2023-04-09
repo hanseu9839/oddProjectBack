@@ -13,12 +13,12 @@ import java.util.List;
 @Service
 public class OpenApiService {
 
-    List<Object> openApiList;
-    private List<Object> getOpenApiData() throws URISyntaxException, ParseException {
+    List<String> openApiList;
+    private List<String> getOpenApiData() throws URISyntaxException, ParseException {
         String[] locations = {"guro","jongno","yangcheon","gwanak"};
         for(String location : locations){
-            ResponseEntity<?> responseEntity = CmnUtil.selectApiLocation(location);
-            openApiList.add(responseEntity);
+            openApiList = CmnUtil.selectApiLocation(location);
+
         }
         return openApiList;
     }

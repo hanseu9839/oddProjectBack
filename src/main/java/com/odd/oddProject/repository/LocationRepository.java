@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 public interface LocationRepository {
     void save(LocationDto locationDto);
+    LocationDto findByLoc(String address);
 }

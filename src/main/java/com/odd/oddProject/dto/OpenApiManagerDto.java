@@ -2,6 +2,7 @@ package com.odd.oddProject.dto;
 
 
 import lombok.AllArgsConstructor;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -12,13 +13,13 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -54,12 +55,38 @@ public class OpenApiManagerDto {
     }
 
     /*모든 API의 개수를 가져와준다.*/
-    public ResponseEntity<?> getAllFetch() throws URISyntaxException, ParseException {
+    public List<String> getAllFetch() throws URISyntaxException, ParseException {
         RestTemplate template = new RestTemplate();
         HttpEntity<?> entity = new HttpEntity<>(new HttpHeaders());
         getAllCount();
-        ResponseEntity<Map> apiData = template.exchange(makeUrl(), HttpMethod.GET, entity, Map.class);
+        ResponseEntity<String> apiData = template.exchange(makeUrl(), HttpMethod.GET, entity, String.class);
+        ArrayList<String> targetPositionDatas  = (ArrayList<String>) getPosition(apiData);
+        for(String target : targetPositionDatas){
+            logger.info(target);
+        }
+        return targetPositionDatas;
+    }
 
-        return apiData;
+    public List<String> getPosition(ResponseEntity<String> apiData) throws ParseException {
+        List<String> getOpenApiPositions = new ArrayList<>();
+        JSONParser jsonParser = new JSONParser();
+        String apiResult = apiData.getBody().toString();
+        JSONObject targetJsonObject = (JSONObject) jsonParser.parse(apiResult);
+        JSONArray targetJsonArray = (JSONArray) targetJsonObject.get("data");
+
+        for(Object targetApiData : targetJsonArray){
+            String transferTargetData = targetApiData.toString();
+            JSONObject realTarget = (JSONObject) jsonParser.parse(transferTargetData);
+            if(realTarget.containsKey("위치"))
+            {
+                String targetPosition = (String) realTarget.get("위치");
+                getOpenApiPositions.add(targetPosition);
+            }else{
+                String targetPosition = (String) realTarget.get("도로명주소");
+                getOpenApiPositions.add(targetPosition);
+            }
+
+        }
+        return getOpenApiPositions;
     }
 }
