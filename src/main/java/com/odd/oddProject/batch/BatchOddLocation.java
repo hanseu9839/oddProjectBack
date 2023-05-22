@@ -1,7 +1,10 @@
 package com.odd.oddProject.batch;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
-public class batchService {
+@Component
+public class BatchOddLocation {
+
+
 }

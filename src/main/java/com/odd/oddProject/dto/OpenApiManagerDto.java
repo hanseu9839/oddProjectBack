@@ -66,7 +66,7 @@ public class OpenApiManagerDto {
         }
         return targetPositionDatas;
     }
-
+    /* JsonData의 위치 데이터를 가져와준다. */
     public List<String> getPosition(ResponseEntity<String> apiData) throws ParseException {
         List<String> getOpenApiPositions = new ArrayList<>();
         JSONParser jsonParser = new JSONParser();

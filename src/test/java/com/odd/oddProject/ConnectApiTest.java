@@ -3,12 +3,15 @@ package com.odd.oddProject;
 import com.odd.oddProject.cmn.CmnUtil;
 import com.odd.oddProject.cmn.OddException;
 import com.odd.oddProject.dto.KakaoApiManagerDto;
+import com.odd.oddProject.dto.OpenApiFileManagerDto;
+import com.opencsv.exceptions.CsvValidationException;
 import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -31,9 +34,9 @@ public class ConnectApiTest {
     }
     @Test
     @DisplayName("자바 현재 디렉토리 확인")
-    void currentDirectFind() {
-        String path = System.getProperty("user.dir");
-        System.out.println("Working Directory = " + path);
+    void currentDirectFind() throws CsvValidationException, IOException, OddException, URISyntaxException, ParseException {
+        OpenApiFileManagerDto openApiFileManagerDto = new OpenApiFileManagerDto();
+        openApiFileManagerDto.OpenApiFileFetch();
     }
     @Test
     @DisplayName("KaokaoOpenApi 연결 테스트")
@@ -41,7 +44,7 @@ public class ConnectApiTest {
         String location = "guro";
         ArrayList<String> responseEntity = (ArrayList<String>) CmnUtil.selectApiLocation(location);
         KakaoApiManagerDto kakaoApiManagerDto = new KakaoApiManagerDto();
-        kakaoApiManagerDto.fetchKakaoApi(responseEntity);
+        kakaoApiManagerDto.KakaoOpenApifetch(responseEntity);
     }
 
 }

@@ -20,8 +20,16 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.apache.logging.log4j:log4j-core'
+	implementation 'org.apache.logging.log4j:log4j-api'
 	implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
 	implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2"
+	//csv 파일 읽기
+	implementation 'com.opencsv:opencsv:5.7.1'
+	// xls 엑셀 파일 읽기 쓰기
+	implementation 'org.apache.poi:poi:5.2.3'
+	// xlsx 엑셀 파일 읽기 쓰기
+	implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.3'
 	runtimeOnly 'mysql:mysql-connector-java:8.0.32'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
