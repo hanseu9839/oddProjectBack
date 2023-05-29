@@ -86,7 +86,7 @@ public class OpenApiFileManagerDto {
         return locationList;
     }
     /* 엑셀의 주소위치의 인덱스 찾기*/
-    int searchHeaderAddressExcelIndex(XSSFRow row) {
+    public int searchHeaderAddressExcelIndex(XSSFRow row) {
        int cellIndex = 0;
         String headerName ="";
        do{

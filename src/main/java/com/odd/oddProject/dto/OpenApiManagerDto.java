@@ -2,11 +2,12 @@ package com.odd.oddProject.dto;
 
 
 import lombok.AllArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.http.HttpEntity;
@@ -30,10 +31,11 @@ public class OpenApiManagerDto {
     private int perPage;
     private String uddi;
     private int locationNumber;
-    private final Logger logger = LoggerFactory.getLogger(OpenApiManagerDto.class);
+    private final Logger logger = LogManager.getLogger(OpenApiManagerDto.class);
 
     /*공공데이터 URL을 만들어준다. */
     private URI makeUrl() throws URISyntaxException {
+        System.out.println("makeUrl>>"+BaseUrl+locationNumber+"/v1/uddi:"+uddi+"?page="+page+"&perPage="+perPage+"&serviceKey="+serviceKey);
         return new URI(BaseUrl+locationNumber+"/v1/uddi:"+uddi+"?page="+page+"&perPage="+perPage+"&serviceKey="+serviceKey);
     }
 
@@ -74,19 +76,28 @@ public class OpenApiManagerDto {
         JSONObject targetJsonObject = (JSONObject) jsonParser.parse(apiResult);
         JSONArray targetJsonArray = (JSONArray) targetJsonObject.get("data");
 
+        System.out.println("targetJsonArray >> "+targetJsonArray);
         for(Object targetApiData : targetJsonArray){
             String transferTargetData = targetApiData.toString();
             JSONObject realTarget = (JSONObject) jsonParser.parse(transferTargetData);
+
             if(realTarget.containsKey("위치"))
             {
                 String targetPosition = (String) realTarget.get("위치");
                 getOpenApiPositions.add(targetPosition);
-            }else{
+            }else if(realTarget.containsKey("도로명주소")){
                 String targetPosition = (String) realTarget.get("도로명주소");
+                getOpenApiPositions.add(targetPosition);
+            }else if(realTarget.containsKey("주소")){
+                String targetPosition = (String) realTarget.get("주소");
+                getOpenApiPositions.add(targetPosition);
+            } else if(realTarget.containsKey("지번주소")){
+                String targetPosition = (String) realTarget.get("지번주소");
                 getOpenApiPositions.add(targetPosition);
             }
 
         }
+
         return getOpenApiPositions;
     }
 }

@@ -11,13 +11,13 @@ public class BatchOddServiceImpl implements  BatchOddService{
     @Autowired
     OddLocationMapper oddLocationMapper;
 
-
     @Override
     public void insertLocationData(LocationDto dto) {
-        oddLocationMapper.insert();
+        oddLocationMapper.insert(dto);
     }
 
-    public void deleteLocationData() throws Exception{
-        oddLocationMapper.delete();
+    @Override
+    public void deleteLocationData(LocationDto dto) {
+        oddLocationMapper.delete(dto);
     }
 }

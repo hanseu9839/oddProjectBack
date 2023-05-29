@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface BatchOddService {
     void insertLocationData(LocationDto dto);
-    void deleteLocationData();
+    void deleteLocationData(LocationDto dto);
 
 }

@@ -6,11 +6,13 @@ import lombok.Data;
 @Builder
 @Data
 public class LocationDto {
-    String city;
-    String country;
-    String district;
-    String dong;
-    double x;
-    double y;
+
+    String city;// 시
+    String country; // 구
+    String district; // 군
+    String dong; // 동
+    double x; // 위도
+    double y; // 경도
+    String del_yn; // 삭제 여부
 
 }
