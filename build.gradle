@@ -12,9 +12,6 @@ configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
-	all {
-		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
-	}
 }
 
 repositories {
@@ -36,7 +33,12 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-data-mybatis:2.5.0'
-	implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+	// SLF4J API
+	implementation 'org.slf4j:slf4j-api:1.7.32'
+	// Logback implementation
+	implementation 'ch.qos.logback:logback-classic:1.2.5'
+	// SLF4J bridge for Logback
+	implementation 'org.slf4j:logback-classic:1.2.5'
 }
 
 tasks.named('test') {

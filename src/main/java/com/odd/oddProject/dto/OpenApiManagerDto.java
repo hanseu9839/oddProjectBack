@@ -80,7 +80,7 @@ public class OpenApiManagerDto {
         for(Object targetApiData : targetJsonArray){
             String transferTargetData = targetApiData.toString();
             JSONObject realTarget = (JSONObject) jsonParser.parse(transferTargetData);
-
+            // 각각의 DTO
             if(realTarget.containsKey("위치"))
             {
                 String targetPosition = (String) realTarget.get("위치");

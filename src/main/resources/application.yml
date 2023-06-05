@@ -3,4 +3,4 @@ spring:
       active: local
 
 logging:
-  config: classpath:log4j2.yml
+  config: classpath:logback-spring.xml

@@ -28,8 +28,8 @@ import java.util.Map;
 
 @Component
 public class KakaoApiManagerDto {
-    @Value("{{kaokao.apikey}")
-    String key= "KakaoAK d8cf9d20f843e173c5fe88fc3fb944dc";
+    @Value("${kaokao.apikey}")
+    String key;
     private String addressRestUrl = "https://dapi.kakao.com/v2/local/search/address.json?analyze_type=similar&page=1&size=10&query=";
     private static final Logger LOGGER = LogManager.getLogger(KakaoApiManagerDto.class);
     /* 파라미터로 넘겨받은 주소로 위도 경도를 보내준다.*/
@@ -66,19 +66,24 @@ public class KakaoApiManagerDto {
            JSONArray locationArray = (JSONArray) body.get("documents");
 
            if(locationArray.size()!=0){
-                JSONObject getAddress = (JSONObject) locationArray.get(0);
-                JSONObject getTargetData = (JSONObject) getAddress.get("address");
-                LocationDto locationDto = LocationDto.builder()
-                                                        .city((String)getTargetData.get("region_1depth_name"))
-                                                        .district((String)getTargetData.get("region_2depth_name"))
-                                                        .dong((String)getTargetData.get("region_3depth_h_name"))
-                                                        .x(Double.parseDouble((String) getTargetData.get("x")))
-                                                        .y(Double.parseDouble((String) getTargetData.get("y")))
-                                                        .del_yn("Y")
-                                                        .build();
-                LOGGER.info(""+locationDto);
-                kaKaoApiCallcount++;
-                loc.add(locationDto);
+               // 예외 발생시 건너뛰고 다음 주소 저장
+               try {
+                   JSONObject getAddress = (JSONObject) locationArray.get(0);
+                   JSONObject getTargetData = (JSONObject) getAddress.get("address");
+                   LocationDto locationDto = LocationDto.builder()
+                           .city((String) getTargetData.get("region_1depth_name"))
+                           .district((String) getTargetData.get("region_2depth_name"))
+                           .dong((String) getTargetData.get("region_3depth_h_name"))
+                           .x(Double.parseDouble((String) getTargetData.get("x")))
+                           .y(Double.parseDouble((String) getTargetData.get("y")))
+                           .del_yn("Y")
+                           .build();
+                   LOGGER.info("locationDto >> " + locationDto);
+                   kaKaoApiCallcount++;
+                   loc.add(locationDto);
+               }catch(Exception e){
+                   continue;
+               }
            }
         }
         System.out.println(loc);

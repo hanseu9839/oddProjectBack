@@ -44,7 +44,7 @@ public class ConnectApiTest {
     @DisplayName("KaokaoOpenApi 연결 테스트")
     void connectKaokaoApi() throws URISyntaxException, ParseException, UnsupportedEncodingException, OddException {
         OpenApiService openApiService = new OpenApiService();
-        openApiService.getOpenApiUriData();
+        openApiService.getKakaoOpenApiUri();
     }
 
 }
