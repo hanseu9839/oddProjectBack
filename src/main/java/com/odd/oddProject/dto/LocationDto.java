@@ -2,10 +2,12 @@ package com.odd.oddProject.dto;
 
 import lombok.Builder;
 import lombok.Data;
+import org.apache.ibatis.session.ResultContext;
+import org.apache.ibatis.session.ResultHandler;
 
 @Builder
 @Data
-public class LocationDto {
+public class LocationDto  {
 
     String city;// 시
     String country; // 구
@@ -14,5 +16,6 @@ public class LocationDto {
     double x; // 위도
     double y; // 경도
     String del_yn; // 삭제 여부
+
 
 }

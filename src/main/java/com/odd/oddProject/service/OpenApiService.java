@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import javax.xml.stream.Location;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
@@ -31,7 +32,7 @@ public class OpenApiService {
     // URI형식의 OpenApiData형식을 가져온다.
     public List<String> getOpenApiUriData() throws URISyntaxException, ParseException {
         List<String> openApiUriList = new ArrayList<>();
-        String[] locations = {"guro","jongno","yangcheon","gwanak", "gwangjin", "dongjak"};
+        String[] locations = {"guro","yangcheon","jongno","gwanak","dongjak","gwangjin"};
         for(String location : locations){
             openApiUriList.addAll(CmnUtil.selectApiLocation(location));
             System.out.println("location");
@@ -50,8 +51,8 @@ public class OpenApiService {
      * @throws URISyntaxException
      * @throws ParseException
      */
-    public List<String> getOpenApiFileData() throws CsvValidationException, OddException, IOException, URISyntaxException, ParseException {
-        List<String> openApiFileList = new ArrayList<>();
+    public List<LocationDto> getOpenApiFileData() throws CsvValidationException, OddException, IOException, URISyntaxException, ParseException {
+        List<LocationDto> openApiFileList = new ArrayList<>();
         OpenApiFileManagerDto openApiFileManagerDto = new OpenApiFileManagerDto();
         openApiFileList = openApiFileManagerDto.OpenApiFileFetch();
 
@@ -64,7 +65,7 @@ public class OpenApiService {
     public List<LocationDto> getKakaoOpenApiUri() throws URISyntaxException, ParseException, UnsupportedEncodingException, OddException {
         List<String> openApiData = this.getOpenApiUriData();
         List<LocationDto> kakaoApiData = kakaoApiManagerDto.KakaoOpenApifetch(openApiData);
-
+        LOGGER.info("kakaoApiData >> "+kakaoApiData);
         return kakaoApiData;
     }
 }

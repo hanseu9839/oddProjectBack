@@ -5,7 +5,7 @@ import com.odd.oddProject.dto.LocationDto;
 import java.util.List;
 
 public interface BatchOddService {
-    void insertLocationData(LocationDto dto);
+    void insertLocationData(List<LocationDto> list);
     void deleteLocationData(LocationDto dto);
 
 }

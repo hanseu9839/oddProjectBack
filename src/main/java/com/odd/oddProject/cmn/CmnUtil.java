@@ -59,7 +59,6 @@ public class CmnUtil {
                 apiData = (ArrayList<String>) openApiManagerDto.getAllFetch();
                 break;
         }
-        System.out.println("locations : "+ location +" OpenApiData >> "+apiData );
         return apiData;
     }
     /* Kaokao openApi 사용하여 한개 데이터 주소를 위도 경도로 바꿔주기*/

@@ -56,6 +56,7 @@ public class KakaoApiManagerDto {
     }
     /* OpenApi데이터로 주소 넘겨 받을시 카카오 형식으로 주소 변환*/
     public List<LocationDto> KakaoOpenApifetch(List<String> list) throws UnsupportedEncodingException, URISyntaxException, ParseException, OddException {
+        LOGGER.info("===================kakaoOpenApiFetchRunStart==========");
         List<LocationDto> loc = new ArrayList<>();
         int kaKaoApiCallcount=0;
         for(String address: list){
@@ -78,15 +79,18 @@ public class KakaoApiManagerDto {
                            .y(Double.parseDouble((String) getTargetData.get("y")))
                            .del_yn("Y")
                            .build();
-                   LOGGER.info("locationDto >> " + locationDto);
                    kaKaoApiCallcount++;
+                   LOGGER.info("refine locationDTO" + locationDto);
                    loc.add(locationDto);
                }catch(Exception e){
+                   LOGGER.info("error data");
                    continue;
                }
            }
+
         }
-        System.out.println(loc);
+        LOGGER.info("===================kakaoOpenApiFetchRunEnd==========");
+        LOGGER.info("locData :: " + loc);
         LOGGER.info("kaKaoCallApiCount : "+ kaKaoApiCallcount);
         return loc;
     }

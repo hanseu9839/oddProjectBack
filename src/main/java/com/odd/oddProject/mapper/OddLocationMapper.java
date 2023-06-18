@@ -9,7 +9,7 @@ import java.util.List;
 public interface OddLocationMapper {
 
     // Odd 공공 API 날짜 데이터를 삽입한다.
-    public void insert(LocationDto dto);
+    public void insertLocation(List<LocationDto> list);
 
     // Odd 공공 API 날짜 데이터를 삭제한다.
     public void delete(LocationDto dto);

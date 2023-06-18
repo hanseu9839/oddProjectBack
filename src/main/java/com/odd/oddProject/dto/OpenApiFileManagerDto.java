@@ -24,7 +24,7 @@ import static java.util.regex.Pattern.compile;
 public class OpenApiFileManagerDto {
     @Value("{$file.path}")
     String PATH;
-    public List<String> OpenApiFileFetch() throws IOException, CsvValidationException, OddException, URISyntaxException, ParseException {
+    public List<LocationDto> OpenApiFileFetch() throws IOException, CsvValidationException, OddException, URISyntaxException, ParseException {
         // 테스트 코드에서 PATH에서는 SpringBoot 접근 애매하여 설정 (수정해야할 코드)
         if(PATH==null) PATH = "/Users/seunggyunhan/Desktop/oddProject/src/main/resources/files";
         File dir = new File(PATH);
@@ -35,7 +35,7 @@ public class OpenApiFileManagerDto {
             }
         };
         File xlsxFiles[] = dir.listFiles(xlsxFilter);
-        List locationList = new ArrayList<String>();
+        List locationList = new ArrayList<LocationDto>();
         /* 엑셀 파일을 읽어오는 부분 */
         for(File xlsxFile : xlsxFiles){
             XSSFWorkbook workBook = new XSSFWorkbook(new FileInputStream(xlsxFile));
