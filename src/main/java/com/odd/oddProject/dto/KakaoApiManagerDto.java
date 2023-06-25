@@ -78,6 +78,7 @@ public class KakaoApiManagerDto {
                            .x(Double.parseDouble((String) getTargetData.get("x")))
                            .y(Double.parseDouble((String) getTargetData.get("y")))
                            .del_yn("Y")
+                           .fullName(address)
                            .build();
                    kaKaoApiCallcount++;
                    LOGGER.info("refine locationDTO" + locationDto);

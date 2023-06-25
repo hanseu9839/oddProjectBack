@@ -32,7 +32,8 @@ public class BatchOddLocation {
     /**
      * 옷다담 oddLocation DB insert 배치
      */
-    @Scheduled(fixedRate = 5000) // 5초마다 실행
+    @Scheduled(cron = "0 30 0 * * *") //0시 30분 배치 실행
+    //@Scheduled(fixedRate = 5000) // 5초마다 실행
     public void oddLocationDataInsert() throws URISyntaxException, ParseException {
 
         List<LocationDto> locationDtoList = new ArrayList<>();

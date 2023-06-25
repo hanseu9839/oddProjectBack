@@ -1,6 +1,7 @@
 package com.odd.oddProject.dao;
 
 import com.odd.oddProject.dto.LocationDto;
+import com.odd.oddProject.dto.oddSrchFilterDto;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -22,7 +23,7 @@ public class LocationDao {
         map.put("list",list);
         return sqlSession.insert("insertLocation",list);
     }
-    public List<LocationDto> selectList(LocationDto loc){
-        return sqlSession.selectList("selectLocation",loc);
+    public List<LocationDto> selectLocationList(String srchFilter){
+        return sqlSession.selectList("selectLocation",srchFilter);
     }
 }

@@ -16,6 +16,6 @@ public class LocationDto  {
     double x; // 위도
     double y; // 경도
     String del_yn; // 삭제 여부
-
+    String fullName; // 전체 주소 이름
 
 }
