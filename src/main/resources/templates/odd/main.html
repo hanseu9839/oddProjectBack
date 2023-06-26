@@ -7,11 +7,10 @@
 </head>
 <body>
 <div class="searchBox">
-    <form id="searchForm" th:action="@{/searchLocation}" method="get">
-        <input type="text" name="keyword"/>
+    <form id="searchForm" method="get">
+        <input type="text" name="keyword" placeholder="도로명주소를 간략하게 적어주세요"/>
         <button type="submit"><span>검색</span></button>
     </form>
-
 </div>
 
 </body>

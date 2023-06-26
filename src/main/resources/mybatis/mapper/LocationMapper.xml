@@ -29,7 +29,7 @@
             , ODD_FULLNAME = #{item.fullName}
         </foreach>
     </insert>
-    <select id = "selectLocation" parameterType="String" resultType="com.odd.oddProject.dto.LocationDto">
+    <select id = "selectLocation" parameterType="String" resultType="hashMap">
         SELECT  L.ODD_CITY
                 , L.ODD_DISTRICT
                 , L.ODD_DONG
@@ -37,10 +37,10 @@
                 , L.ODD_Y
                 , L.ODD_FULLNAME
         FROM ODD_LOCATION L
+        <if test= "srchFilter != null">
         WHERE
-            <if test= "#{fullName} != null">
-                L.ODD_FULLNAME LIKE '% #{srchFilter} %';
-            </if>
+            L.ODD_FULLNAME LIKE CONCAT('%',#{srchFilter},'%') ;
+        </if>
     </select>
 
 </mapper>
