@@ -52,9 +52,8 @@ public class OpenApiService {
      * @throws ParseException
      */
     public List<LocationDto> getOpenApiFileData() throws CsvValidationException, OddException, IOException, URISyntaxException, ParseException {
-        List<LocationDto> openApiFileList = new ArrayList<>();
         OpenApiFileManagerDto openApiFileManagerDto = new OpenApiFileManagerDto();
-        openApiFileList = openApiFileManagerDto.OpenApiFileFetch();
+        List<LocationDto> openApiFileList = openApiFileManagerDto.getOpenApiFileFetch();
 
         return openApiFileList;
     }

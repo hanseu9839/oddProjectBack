@@ -3,6 +3,7 @@ package com.odd.oddProject.dto;
 import com.odd.oddProject.cmn.OddException;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
+import lombok.AllArgsConstructor;
 import org.apache.poi.ss.formula.atp.Switch;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -22,9 +23,10 @@ import java.util.regex.Pattern;
 import static java.util.regex.Pattern.compile;
 
 public class OpenApiFileManagerDto {
-    @Value("{$file.path}")
+    @Value("${file.path}")
     String PATH;
-    public List<LocationDto> OpenApiFileFetch() throws IOException, CsvValidationException, OddException, URISyntaxException, ParseException {
+
+    public List<LocationDto> getOpenApiFileFetch() throws IOException, CsvValidationException, OddException, URISyntaxException, ParseException {
         // 테스트 코드에서 PATH에서는 SpringBoot 접근 애매하여 설정 (수정해야할 코드)
         if(PATH==null) PATH = "/Users/seunggyunhan/Desktop/oddProject/src/main/resources/files";
         File dir = new File(PATH);
@@ -36,6 +38,7 @@ public class OpenApiFileManagerDto {
         };
         File xlsxFiles[] = dir.listFiles(xlsxFilter);
         List locationList = new ArrayList<LocationDto>();
+        List rtnLocationList = new ArrayList<LocationDto>();
         /* 엑셀 파일을 읽어오는 부분 */
         for(File xlsxFile : xlsxFiles){
             XSSFWorkbook workBook = new XSSFWorkbook(new FileInputStream(xlsxFile));
@@ -82,8 +85,8 @@ public class OpenApiFileManagerDto {
                 }
             }
             KakaoApiManagerDto kakaoApiManagerDto = new KakaoApiManagerDto();
-            kakaoApiManagerDto.KakaoOpenApifetch(locationList);
-        return locationList;
+        rtnLocationList = kakaoApiManagerDto.KakaoOpenApifetch(locationList);
+        return rtnLocationList;
     }
     /* 엑셀의 주소위치의 인덱스 찾기*/
     public int searchHeaderAddressExcelIndex(XSSFRow row) {

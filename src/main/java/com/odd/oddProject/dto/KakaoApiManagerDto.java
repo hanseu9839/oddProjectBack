@@ -29,7 +29,7 @@ import java.util.Map;
 @Component
 public class KakaoApiManagerDto {
     @Value("${kaokao.apikey}")
-    String key;
+    String key= "KakaoAK d8cf9d20f843e173c5fe88fc3fb944dc";
     private String addressRestUrl = "https://dapi.kakao.com/v2/local/search/address.json?analyze_type=similar&page=1&size=10&query=";
     private static final Logger LOGGER = LogManager.getLogger(KakaoApiManagerDto.class);
     /* 파라미터로 넘겨받은 주소로 위도 경도를 보내준다.*/
@@ -60,6 +60,7 @@ public class KakaoApiManagerDto {
         List<LocationDto> loc = new ArrayList<>();
         int kaKaoApiCallcount=0;
         for(String address: list){
+            LOGGER.info("address >> " + address);
             if(address.equals("")) continue;
            ResponseEntity<String> response = kakaoApiUrlConnection(address);
            JSONParser jsonParser = new JSONParser();

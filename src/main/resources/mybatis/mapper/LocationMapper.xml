@@ -3,30 +3,25 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.odd.oddProject.mapper.OddLocationMapper">
     <insert id="insertLocation" parameterType="java.util.HashMap">
-        INSERT INTO ODD_LOCATION (ODD_CITY, ODD_COUNTY, ODD_DISTRICT, ODD_DONG, ODD_X, ODD_Y, del_yn, ODD_FULLNAME)
-        VALUES
+        INSERT INTO ODD_LOCATION (
+                                  ODD_CITY
+                                  , ODD_DISTRICT
+                                  , ODD_DONG
+                                  , ODD_X
+                                  , ODD_Y
+                                  , del_yn
+                                  , ODD_FULLNAME
+                                  ) VALUES
         <foreach collection="list" item="item" separator=",">
-            (
-                     #{item.city}
-                    , #{item.country}
-                    , #{item.district}
-                    , #{item.dong}
-                    , #{item.x}
-                    , #{item.y}
-                    , 'Y'
-                    , #{item.fullName}
-            )
-        </foreach>
-        ON DUPLICATE KEY UPDATE
-        <foreach collection="list" item="item" separator=",">
-            ODD_CITY = #{item.city}
-            , ODD_COUNTY = #{item.country}
-            , ODD_DISTRICT = #{item.district}
-            , ODD_DONG = #{item.dong}
-            , ODD_X = #{item.x}
-            , ODD_Y = #{item.y}
-            , del_yn = 'Y'
-            , ODD_FULLNAME = #{item.fullName}
+        (
+            #{item.city}
+            , #{item.district}
+            , #{item.dong}
+            , #{item.x}
+            , #{item.y}
+            , 'Y'
+            , #{item.fullName}
+        )
         </foreach>
     </insert>
     <select id = "selectLocation" parameterType="String" resultType="hashMap">
