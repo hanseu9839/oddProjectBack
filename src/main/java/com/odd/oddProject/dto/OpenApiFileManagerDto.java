@@ -28,7 +28,7 @@ public class OpenApiFileManagerDto {
 
     public List<LocationDto> getOpenApiFileFetch() throws IOException, CsvValidationException, OddException, URISyntaxException, ParseException {
         // 테스트 코드에서 PATH에서는 SpringBoot 접근 애매하여 설정 (수정해야할 코드)
-        if(PATH==null) PATH = "/Users/seunggyunhan/Desktop/oddProject/src/main/resources/files";
+        if(PATH==null) PATH = "/Users/han/oddProjectBack/src/main/resources/files";
         File dir = new File(PATH);
         FilenameFilter xlsxFilter = new FilenameFilter() {
             @Override

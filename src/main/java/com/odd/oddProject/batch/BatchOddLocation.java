@@ -9,6 +9,7 @@ import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -21,21 +22,26 @@ import java.util.List;
 @Component
 @EnableAsync
 public class BatchOddLocation {
-    OpenApiService openApiService;
-    BatchOddService batchOddService;
     @Autowired
-    BatchOddLocation(OpenApiService openApiService, BatchOddServiceImpl batchOddService){
-        this.openApiService = openApiService;
-        this.batchOddService = batchOddService;
-    }
+    OpenApiService openApiService;
+    @Autowired
+    BatchOddServiceImpl batchOddService;
+
     private static Logger LOGGER = LoggerFactory.getLogger(BatchOddLocation.class);
     /**
      * 옷다담 oddLocation DB insert 배치
      */
-    //@Scheduled(cron = "0 30 0 * * *") //0시 30분 배치 실행
-    @Scheduled(fixedRate = 5000) // 5초마다 실행
+    @Scheduled(cron = "0 30 0 * * *") //0시 30분 배치 실행
+    //@Scheduled(fixedRate = 5000) // 5초마다 실행
     public void oddLocationDataInsert() throws URISyntaxException, ParseException {
-
+        int count = batchOddService.allCntLocation();
+        LOGGER.info("delete >> "+count);
+        boolean deleteFlag = count > 0? true : false;
+        if(deleteFlag){
+            LOGGER.info(">>"+deleteFlag);
+            LOGGER.info("inUpdateQuery");
+            batchOddService.updateAllDelYn();
+        }
         List<LocationDto> locationDtoList = new ArrayList<>();
 
         try{

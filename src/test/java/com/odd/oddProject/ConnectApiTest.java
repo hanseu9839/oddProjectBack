@@ -20,6 +20,7 @@ import java.util.ArrayList;
 @Component
 public class ConnectApiTest {
 
+    String openApiKey = "Z%2BQodRDulSnhc%2FQPPMSjFBJmRBoB2lmzYIoADFND8d%2Fv7M%2BrFCLklDNG2HS7BZjwCGdMARLWssYcIL5pzX%2FgSw%3D%3D";
 
     @Test
     @DisplayName("Api연결 테스트")
@@ -28,7 +29,7 @@ public class ConnectApiTest {
 
         for(String location : locations){
             System.out.println("location"+location);
-            ArrayList<String> responseEntity = (ArrayList<String>) CmnUtil.selectApiLocation(location);
+            ArrayList<String> responseEntity = (ArrayList<String>) CmnUtil.selectApiLocation(location, openApiKey);
             System.out.println("getApi = " + responseEntity);
         }
 

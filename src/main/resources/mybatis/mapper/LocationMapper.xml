@@ -2,6 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.odd.oddProject.mapper.OddLocationMapper">
+    <select id = "allCntLocation" resultType="Integer">
+        SELECT COUNT(*)
+        FROM ODD_LOCATION
+    </select>
+
+    <select id = "selectLocation" parameterType="com.odd.oddProject.dto.OddSrchFilterDto" resultType="hashMap">
+        SELECT  L.ODD_CITY
+        , L.ODD_DISTRICT
+        , L.ODD_DONG
+        , L.ODD_X
+        , L.ODD_Y
+        , L.ODD_FULLNAME
+        FROM ODD_LOCATION L
+        <where>
+            <if test="district != null">
+                AND L.ODD_DISTRICT = #{district}
+            </if>
+            <if test="dong != null">
+                AND L.ODD_DONG  =  #{dong}
+            </if>
+            <if test="fullName != null">
+                AND L.ODD_FULLNAME LIKE CONCAT('%',#{fullName},'%') ;
+            </if>
+        </where>
+    </select>
+
     <insert id="insertLocation" parameterType="java.util.HashMap">
         INSERT INTO ODD_LOCATION (
                                   ODD_CITY
@@ -22,20 +48,15 @@
             , 'Y'
             , #{item.fullName}
         )
-        </foreach>
+        </foreach> ON DUPLICATE KEY  UPDATE DEL_YN = 'N';
     </insert>
-    <select id = "selectLocation" parameterType="String" resultType="hashMap">
-        SELECT  L.ODD_CITY
-                , L.ODD_DISTRICT
-                , L.ODD_DONG
-                , L.ODD_X
-                , L.ODD_Y
-                , L.ODD_FULLNAME
-        FROM ODD_LOCATION L
-        <if test= "srchFilter != null">
-        WHERE
-            L.ODD_FULLNAME LIKE CONCAT('%',#{srchFilter},'%') ;
-        </if>
-    </select>
+
+
+
+    <update id = "updateAllDelYn">
+        UPDATE ODD_LOCATION
+        SET DEL_YN = 'N'
+    </update>
+
 
 </mapper>

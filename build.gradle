@@ -28,17 +28,14 @@ dependencies {
 	implementation 'org.apache.poi:poi:5.2.3'
 	// xlsx 엑셀 파일 읽기 쓰기
 	implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.3'
-	runtimeOnly 'mysql:mysql-connector-java:8.0.32'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.33'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'org.springframework.boot:spring-boot-starter-data-mybatis:2.5.0'
+	implementation 'org.mybatis:mybatis:3.4.5'
 	// SLF4J API
 	implementation 'org.slf4j:slf4j-api:1.7.32'
-	// Logback implementation
-	implementation 'ch.qos.logback:logback-classic:1.2.5'
-	// SLF4J bridge for Logback
-	implementation 'org.slf4j:logback-classic:1.2.5'
+	implementation 'ch.qos.logback:logback-classic:1.2.6'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	// 다른 Spring Boot 의존성 등
 

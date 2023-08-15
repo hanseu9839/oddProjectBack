@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 import org.json.simple.parser.ParseException;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -29,12 +30,14 @@ public class OpenApiService {
     KakaoApiManagerDto kakaoApiManagerDto;
     private final Logger LOGGER = LogManager.getLogger();
 
+    @Value("${data.apikey}")
+    private String openApiKey;
     // URI형식의 OpenApiData형식을 가져온다.
     public List<String> getOpenApiUriData() throws URISyntaxException, ParseException {
         List<String> openApiUriList = new ArrayList<>();
         String[] locations = {"guro","yangcheon","jongno","gwanak","dongjak","gwangjin"};
         for(String location : locations){
-            openApiUriList.addAll(CmnUtil.selectApiLocation(location));
+            openApiUriList.addAll(CmnUtil.selectApiLocation(location, openApiKey));
             System.out.println("location");
             LOGGER.info("LOGGER::");
         }

@@ -2,6 +2,8 @@ package com.odd.oddProject.dto;
 
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONArray;
@@ -23,7 +25,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+@NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class OpenApiManagerDto {
     private String BaseUrl;
     private String serviceKey;
@@ -35,7 +39,7 @@ public class OpenApiManagerDto {
 
     /*공공데이터 URL을 만들어준다. */
     private URI makeUrl() throws URISyntaxException {
-        System.out.println("makeUrl>>"+BaseUrl+locationNumber+"/v1/uddi:"+uddi+"?page="+page+"&perPage="+perPage+"&serviceKey="+serviceKey);
+        logger.info("makeUrl>>"+BaseUrl+locationNumber+"/v1/uddi:"+uddi+"?page="+page+"&perPage="+perPage+"&serviceKey="+serviceKey);
         return new URI(BaseUrl+locationNumber+"/v1/uddi:"+uddi+"?page="+page+"&perPage="+perPage+"&serviceKey="+serviceKey);
     }
 

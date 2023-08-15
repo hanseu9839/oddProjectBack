@@ -1,19 +1,20 @@
 package com.odd.oddProject.controller;
 
-import com.odd.oddProject.batch.BatchOddLocation;
+import com.odd.oddProject.cmn.CmnUtil;
+import com.odd.oddProject.cmn.ErrorResponse;
 import com.odd.oddProject.dto.LocationDto;
-import com.odd.oddProject.dto.oddSrchFilterDto;
-import com.odd.oddProject.service.BatchOddServiceImpl;
+import com.odd.oddProject.dto.OddSrchFilterDto;
 import com.odd.oddProject.service.OddLocationService;
 import com.odd.oddProject.service.OddLocationServiceImpl;
-import com.odd.oddProject.service.OpenApiService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -27,13 +28,18 @@ public class oddLocationController {
         this.oddLocationService = oddLocationService;
     }
     private static Logger LOGGER = LoggerFactory.getLogger(OddLocationService.class);
-    @GetMapping("/main")
-    public ModelAndView findLocation(@RequestParam(required = false, name="keyword") String keyword, ModelAndView mav){
-        List<LocationDto> list= oddLocationService.oddFindLocation(keyword);
-        LOGGER.info("locationDto" + list);
-        mav.addObject("list", "Hello, World!");
-        mav.setViewName("/odd/main");
-        return mav;
+    @GetMapping("/search")
+    public ResponseEntity findLocation(@RequestBody OddSrchFilterDto search){
+        LOGGER.info("search "+search);
+        List<LocationDto> list= oddLocationService.oddFindLocation(search);
+        if(list == null) {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .body(new ErrorResponse("201","NOT FOUND"));
+        }
+        HashMap<String, Object> map = (HashMap<String, Object>) CmnUtil.wrapperJSON(list);
+
+        return ResponseEntity.ok(map);
     }
 
 }

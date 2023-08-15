@@ -16,4 +16,9 @@ public interface OddLocationMapper {
 
     // Odd 공공 API 날짜 데이터를 가져온다.
     public List<LocationDto> getOddList(String searchValue);
+
+    // ODD 공공 API 총 컬럼 개수를 가져온다.
+    public int allCntLocation();
+
+    public int updateAllDelYn();
 }
