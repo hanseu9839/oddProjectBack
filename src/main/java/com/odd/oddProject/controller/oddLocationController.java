@@ -1,5 +1,6 @@
 package com.odd.oddProject.controller;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.odd.oddProject.cmn.CmnUtil;
 import com.odd.oddProject.cmn.ErrorResponse;
 import com.odd.oddProject.dto.LocationDto;
@@ -28,7 +29,8 @@ public class oddLocationController {
         this.oddLocationService = oddLocationService;
     }
     private static Logger LOGGER = LoggerFactory.getLogger(OddLocationService.class);
-    @GetMapping("/search")
+    @PostMapping("/search")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity findLocation(@RequestBody OddSrchFilterDto search){
         LOGGER.info("search "+search);
         List<LocationDto> list= oddLocationService.oddFindLocation(search);
