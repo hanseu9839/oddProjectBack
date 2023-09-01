@@ -32,6 +32,8 @@ public class LocationDao {
         return sqlSession.selectList("selectLocation",searchObject);
     }
 
+    public int deleteLocation() { return sqlSession.delete("deleteLocation"); }
+
     public int allCntLocation() {
         return sqlSession.selectOne("allCntLocation","");
     }

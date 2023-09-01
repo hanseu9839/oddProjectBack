@@ -5,7 +5,6 @@ import com.odd.oddProject.dao.LocationDao;
 import com.odd.oddProject.dto.LocationDto;
 import com.odd.oddProject.mapper.OddLocationMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -25,9 +24,7 @@ public class BatchOddServiceImpl implements  BatchOddService{
     }
 
     @Override
-    public void deleteLocationData(LocationDto dto) {
-        oddLocationMapper.delete(dto);
-    }
+    public int deleteLocationData() { return locationDao.deleteLocation(); }
     @Override
     public int allCntLocation() { return locationDao.allCntLocation(); }
 

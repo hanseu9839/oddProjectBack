@@ -35,11 +35,9 @@ public class BatchOddLocation {
     //@Scheduled(fixedRate = 5000) // 5초마다 실행
     public void oddLocationDataInsert() throws URISyntaxException, ParseException {
         int count = batchOddService.allCntLocation();
-        LOGGER.info("delete >> "+count);
+
         boolean deleteFlag = count > 0? true : false;
         if(deleteFlag){
-            LOGGER.info(">>"+deleteFlag);
-            LOGGER.info("inUpdateQuery");
             batchOddService.updateAllDelYn();
         }
         List<LocationDto> locationDtoList = new ArrayList<>();
@@ -50,10 +48,11 @@ public class BatchOddLocation {
         }catch(Exception e){
             e.printStackTrace();
         }
-        LOGGER.info("locationString >> "+locationDtoList.get(0));
+
         batchOddService.insertLocationData(locationDtoList);
         LOGGER.info("OddLocation Data Insert() locationDtoList >> "+ locationDtoList);
         LOGGER.info("===============Odd Location Insert Batch End =========================");
+        batchOddService.deleteLocationData();
         return;
     }
 }

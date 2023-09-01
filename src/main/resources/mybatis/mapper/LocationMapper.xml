@@ -45,7 +45,7 @@
             , #{item.dong}
             , #{item.x}
             , #{item.y}
-            , 'Y'
+            , 'N'
             , #{item.fullName}
         )
         </foreach> ON DUPLICATE KEY  UPDATE DEL_YN = 'N';
@@ -55,8 +55,13 @@
 
     <update id = "updateAllDelYn">
         UPDATE ODD_LOCATION
-        SET DEL_YN = 'N'
+        SET DEL_YN = 'Y'
     </update>
+
+    <delete id="deleteLocation">
+        DELETE FROM ODD_LOCATION
+        WHERE DEL_YN = 'Y'
+    </delete>
 
 
 </mapper>
