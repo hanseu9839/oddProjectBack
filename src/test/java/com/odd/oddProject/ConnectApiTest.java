@@ -20,32 +20,5 @@ import java.util.ArrayList;
 @Component
 public class ConnectApiTest {
 
-    String openApiKey = "Z%2BQodRDulSnhc%2FQPPMSjFBJmRBoB2lmzYIoADFND8d%2Fv7M%2BrFCLklDNG2HS7BZjwCGdMARLWssYcIL5pzX%2FgSw%3D%3D";
-
-    @Test
-    @DisplayName("Api연결 테스트")
-    void apiFetchTest() throws URISyntaxException, ParseException {
-        String[] locations = {"guro","jongno","yangcheon","gwanak"};
-
-        for(String location : locations){
-            System.out.println("location"+location);
-            ArrayList<String> responseEntity = (ArrayList<String>) CmnUtil.selectApiLocation(location, openApiKey);
-            System.out.println("getApi = " + responseEntity);
-        }
-
-    }
-    @Test
-    @DisplayName("자바 현재 디렉토리 확인")
-    void currentDirectFind() throws CsvValidationException, IOException, OddException, URISyntaxException, ParseException {
-        OpenApiService openApiService= new OpenApiService();
-
-        openApiService.getOpenApiFileData();
-    }
-    @Test
-    @DisplayName("KaokaoOpenApi 연결 테스트")
-    void connectKaokaoApi() throws URISyntaxException, ParseException, UnsupportedEncodingException, OddException {
-        OpenApiService openApiService = new OpenApiService();
-        openApiService.getKakaoOpenApiUri();
-    }
-
+    
 }
