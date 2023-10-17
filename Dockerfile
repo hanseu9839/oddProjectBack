@@ -9,7 +9,8 @@ RUN ./gradlew oddJar
 
 
 FROM openjdk:11-jdk
-COPY --from= builder build/libs/*.jar app.jar
+ARG JAR_FILE=build/libs/*.jar
+COPY ${JAR_FILE} app.jar
 
 EXPOSE 3030
 ENTRYPOINT ["java","-jar","/app.jar"]
