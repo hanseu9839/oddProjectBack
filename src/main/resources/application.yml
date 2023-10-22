@@ -1,9 +1,24 @@
 spring:
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/ODD?characterEncoding=utf8&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
+      username: root
+      password: q1w2e3r4
     thymeleaf:
       prefix: classpath:/templates/
       suffix: .html
     profiles:
       active: local
-
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/mybatis/mapper/*Mapper.xml
+kaokao:
+  apikey: KakaoAK d8cf9d20f843e173c5fe88fc3fb944dc
+data:
+  apikey: Z%2BQodRDulSnhc%2FQPPMSjFBJmRBoB2lmzYIoADFND8d%2Fv7M%2BrFCLklDNG2HS7BZjwCGdMARLWssYcIL5pzX%2FgSw%3D%3D
+file:
+  path: /Users/seunggyunhan/Desktop/oddProject/src/main/resources/files
 logging:
   config: classpath:logback-spring.xml

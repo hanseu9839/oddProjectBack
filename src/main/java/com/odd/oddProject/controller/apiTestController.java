@@ -20,15 +20,19 @@ public class apiTestController {
     public Logger LOGGER = LoggerFactory.getLogger(apiTestController.class);
     @Value("${kaokao.apikey}")
     private String kaokaoOpenApiKey;
+
+    @Value("${file.path}")
+    private String filePath;
     /* Api 연결 테스트 */
     @GetMapping("/apiTest")
     public String apiGetSpring(@RequestParam String api){
         LOGGER.info(api);
-        return api;
+        LOGGER.info("File Path >>"+filePath);
+        return "TEST";
     }
     /* 주소 위도 경도로 변환하여 Client에 보내기 */
     @GetMapping("/srchFilter")
-    @CrossOrigin(origins = "http://localhost:3000")
+    //@CrossOrigin(origins = "http://localhost:3000")
     public Map<String,String> transferAddress(@RequestParam String address) throws UnsupportedEncodingException, URISyntaxException, ParseException {
         Map<String,String> position = transferAddressPosition(address,kaokaoOpenApiKey);
         LOGGER.info("position>>"+position);
