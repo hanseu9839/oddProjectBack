@@ -1,5 +1,5 @@
 server:
-  address: 127.0.0.1
+  address: 52.79.226.25
 spring:
     datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
