@@ -1,8 +1,8 @@
 spring:
     datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://localhost:3306/ODD?characterEncoding=utf8&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
-      username: root
+      jdbc-url: jdbc:mysql://52.79.226.25:3306/odd?characterEncoding=utf8&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
+      username: odd
       password: q1w2e3r4
     thymeleaf:
       prefix: classpath:/templates/

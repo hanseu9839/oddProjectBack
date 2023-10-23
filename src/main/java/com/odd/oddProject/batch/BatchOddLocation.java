@@ -1,3 +1,4 @@
+/*
 package com.odd.oddProject.batch;
 
 import com.odd.oddProject.dao.LocationDao;
@@ -28,11 +29,13 @@ public class BatchOddLocation {
     BatchOddServiceImpl batchOddService;
 
     private static Logger LOGGER = LoggerFactory.getLogger(BatchOddLocation.class);
-    /**
+    */
+/**
      * 옷다담 oddLocation DB insert 배치
-     */
-    @Scheduled(cron = "0 30 0 * * *") //0시 30분 배치 실행
-    //@Scheduled(fixedRate = 5000) // 5초마다 실행
+     *//*
+
+    //@Scheduled(cron = "0 30 0 * * *") //0시 30분 배치 실행
+    @Scheduled(fixedRate = 5000) // 5초마다 실행
     public void oddLocationDataInsert() throws URISyntaxException, ParseException {
         int count = batchOddService.allCntLocation();
 
@@ -56,3 +59,4 @@ public class BatchOddLocation {
         return;
     }
 }
+*/
