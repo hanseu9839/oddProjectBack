@@ -1,16 +1,12 @@
-server:
-  address: 52.79.226.25
 spring:
     datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://52.79.226.25:3306/odd?characterEncoding=utf8&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
+      jdbc-url: jdbc:mysql://54.180.86.105:3306/odd?characterEncoding=utf8&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
       username: odd
       password: q1w2e3r4
     thymeleaf:
       prefix: classpath:/templates/
       suffix: .html
-    profiles:
-      active: local
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
