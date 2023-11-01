@@ -1,0 +1,12 @@
+[INFO ] 20:41:54.356 c.o.oddProject.OddProjectApplication - Starting OddProjectApplication using Java 11.0.19 on Seounggyuns-MacBook-Pro.local with PID 11482 (/Users/han/oddProjectBack/out/production/classes started by han in /Users/han/oddProjectBack)
+[INFO ] 20:41:54.357 c.o.oddProject.OddProjectApplication - The following 1 profile is active: "local"
+[INFO ] 20:41:55.004 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 20:41:55.011 o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 20:41:55.011 o.a.catalina.core.StandardService - Starting service [Tomcat]
+[INFO ] 20:41:55.011 o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.71]
+[INFO ] 20:41:55.097 o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 20:41:55.097 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 713 ms
+[INFO ] 20:41:55.394 o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+[INFO ] 20:41:55.515 o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 20:41:55.531 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 20:41:55.540 c.o.oddProject.OddProjectApplication - Started OddProjectApplication in 1.541 seconds (JVM running for 1.897)
