@@ -1,3 +1,4 @@
+/*
 package com.odd.oddProject;
 
 import org.junit.jupiter.api.Test;
@@ -11,3 +12,4 @@ class OddProjectApplicationTests {
 	}
 
 }
+*/

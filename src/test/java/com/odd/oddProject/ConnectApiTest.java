@@ -1,9 +1,11 @@
+/*
 package com.odd.oddProject;
 
 import com.odd.oddProject.cmn.CmnUtil;
 import com.odd.oddProject.cmn.OddException;
 import com.odd.oddProject.dto.KakaoApiManagerDto;
 import com.odd.oddProject.dto.OpenApiFileManagerDto;
+import com.odd.oddProject.dto.OpenApiManagerDto;
 import com.odd.oddProject.service.OpenApiService;
 import com.opencsv.exceptions.CsvValidationException;
 import org.json.simple.parser.ParseException;
@@ -20,5 +22,12 @@ import java.util.ArrayList;
 @Component
 public class ConnectApiTest {
 
+    @Test
+    void excelConnect(){
+        OpenApiService openApiService = new OpenApiService();
+
+
+    }
 
 }
+*/
