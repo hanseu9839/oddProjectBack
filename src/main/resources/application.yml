@@ -1,8 +1,8 @@
 spring:
     datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://43.200.171.27:3306/odd?characterEncoding=utf8&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
-      username: ODD
+      jdbc-url: jdbc:mysql://jdbc:mysql://158.179.194.191:3306/odd?characterEncoding=utf8&serverTimezone=UTC&autoReconnect=true&allowMultiQueries=true&characterEncoding=UTF-8
+      username: root
       password: q1w2e3r4
     thymeleaf:
       prefix: classpath:/templates/
@@ -22,3 +22,6 @@ file:
   path: /Users/seunggyunhan/Desktop/oddProject/src/main/resources/files
 logging:
   config: classpath:logback-spring.xml
+server:
+  port: 7070
+  address: 192.168.0.179
