@@ -24,4 +24,3 @@ logging:
   config: classpath:logback-spring.xml
 server:
   port: 8080
-  address: 192.168.0.179
