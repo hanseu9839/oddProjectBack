@@ -30,16 +30,10 @@ public class apiTestController {
     private OpenApiService openApiService;
     @Value("${file.path}")
     private String filePath;
-    /* Api 연결 테스트 */
-    @GetMapping("/apiTest")
-    public String apiGetSpring(@RequestParam String api){
-        LOGGER.info(api);
-        LOGGER.info("File Path >>"+filePath);
-        return "TEST";
-    }
+
     /* 주소 위도 경도로 변환하여 Client에 보내기 */
     @GetMapping("/api/srchFilter")
-    @CrossOrigin(origins = "http://43.200.171.27:3000")
+    @CrossOrigin(origins = "http://158.179.194.191:3000")
     public Map<String,String> transferAddress(@RequestParam String address) throws UnsupportedEncodingException, URISyntaxException, ParseException {
         Map<String,String> position = transferAddressPosition(address,kaokaoOpenApiKey);
         LOGGER.info("position>>"+position);
