@@ -46,7 +46,9 @@
 페이지 실행 첫 화면이다. 처음 화면은 디폴트로 구로구 구로2동에 관한 위치정보를 알려준다.
 
 ![image](https://github.com/user-attachments/assets/f4cbe278-f8a5-421b-84e3-4411f9836c37)
+
 거주하고 있는 구의 의류수거함을 클릭한다.
 
 ![image](https://github.com/user-attachments/assets/9ddf3e34-9f7f-4253-bed0-87fe26b71aa5)
+
 
