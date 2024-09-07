@@ -1,4 +1,4 @@
-
+![image](https://github.com/user-attachments/assets/279df4fd-20dc-4afb-822b-e7bd07e0dc32)
 ## 서울시 공공 데이터 API를 사용한 의류 수거함 위치 찾기 웹페이지 ottdadam 
 
 1. 스프링부트 + react를 사용한 의류 수거함 위치 사이트 
@@ -40,4 +40,13 @@
 ## :page_facing_up: 프로젝트 접속 링크 
 <http://43.200.171.27:3000>
 
+## 기능 설명 
+![image](https://github.com/user-attachments/assets/7aad05cf-7354-413a-b1ab-e61dd1e0b8ce)
+
+페이지 실행 첫 화면이다. 처음 화면은 디폴트로 구로구 구로2동에 관한 위치정보를 알려준다.
+
+![image](https://github.com/user-attachments/assets/f4cbe278-f8a5-421b-84e3-4411f9836c37)
+거주하고 있는 구의 의류수거함을 클릭한다.
+
+![image](https://github.com/user-attachments/assets/9ddf3e34-9f7f-4253-bed0-87fe26b71aa5)
 
