@@ -34,7 +34,6 @@
 - ORM : MyBatis
 - DataBase : mysql
 - Cloud : AWS EC2
-- Server : Nginx
 - View : React
 
 ## :page_facing_up: 프로젝트 접속 링크 
