@@ -51,4 +51,9 @@
 
 ![image](https://github.com/user-attachments/assets/9ddf3e34-9f7f-4253-bed0-87fe26b71aa5)
 
+거주하고 있는 구에 맞는 동을 클릭한다.
 
+![image](https://github.com/user-attachments/assets/685fb6c6-b98f-4e90-beed-873b24f12f24)
+![image](https://github.com/user-attachments/assets/d9fa56b3-9e4d-4a3a-bbb4-2168e8963fec)
+
+지도를 보며 위치와 가까운 의류수거함 아이콘을 클릭하거나, 옆의 주소 리스트를 클릭하면 지도에 의류수거함 위치 정보가 나온다.
