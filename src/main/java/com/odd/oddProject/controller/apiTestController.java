@@ -33,7 +33,7 @@ public class apiTestController {
 
     /* 주소 위도 경도로 변환하여 Client에 보내기 */
     @GetMapping("/api/srchFilter")
-    @CrossOrigin(origins = "http://158.179.194.191:3000")
+    @CrossOrigin(origins = "http://34.64.95.196:3000")
     public Map<String,String> transferAddress(@RequestParam String address) throws UnsupportedEncodingException, URISyntaxException, ParseException {
         Map<String,String> position = transferAddressPosition(address,kaokaoOpenApiKey);
         LOGGER.info("position>>"+position);

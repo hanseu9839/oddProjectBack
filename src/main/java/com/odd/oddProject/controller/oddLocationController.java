@@ -30,7 +30,7 @@ public class oddLocationController {
     }
     private static Logger LOGGER = LoggerFactory.getLogger(OddLocationService.class);
     @PostMapping("/api/search")
-    @CrossOrigin(origins = "http://158.179.194.191:3000")
+    @CrossOrigin(origins = "http://34.64.95.196:3000")
     public ResponseEntity findLocation(@RequestBody OddSrchFilterDto search){
         LOGGER.info("search "+search);
         List<LocationDto> list= oddLocationService.oddFindLocation(search);
