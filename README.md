@@ -10,7 +10,7 @@
 해당 프로젝트는 공공데이터를 제공받을 수 있는 서울시 일부 지역 한정으로만 의류 수거함의 위치를 찾을 수 있다.
 ```
 
-## 🗺️ 화면 예시
+## 🗺️ 화면 설명
 
 ![image](https://private-user-images.githubusercontent.com/60298173/281826378-b80f830d-e751-471f-8391-6061b7990bb3.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjU3MTE5ODksIm5iZiI6MTcyNTcxMTY4OSwicGF0aCI6Ii82MDI5ODE3My8yODE4MjYzNzgtYjgwZjgzMGQtZTc1MS00NzFmLTgzOTEtNjA2MWI3OTkwYmIzLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA5MDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwOTA3VDEyMjEyOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTU5NjYwN2M4MmVhYWZjODNhMGIwNThmZTlkZGNjZmUyN2E3MzRkMGI5YjU2YmQ2NDNjM2NjMzU3ZjA1MWFhZDAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.fQA6-YL4rzuUVshXWgu5bkFS2X0XNhnpMXo1hktzIpQ)
 
@@ -39,3 +39,5 @@
 
 ## :page_facing_up: 프로젝트 접속 링크 
 <http://43.200.171.27:3000>
+
+
