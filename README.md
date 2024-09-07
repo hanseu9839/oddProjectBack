@@ -33,7 +33,7 @@
 - Framework : SpringBoot(2.7)
 - ORM : MyBatis
 - DataBase : mysql
-- Cloud : AWS EC2
+- Cloud : gcp
 - View : React
 
 ## :page_facing_up: 프로젝트 접속 링크 
