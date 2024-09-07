@@ -37,7 +37,7 @@
 - View : React
 
 ## :page_facing_up: 프로젝트 접속 링크 
-<http://43.200.171.27:3000>
+<(http://34.64.95.196:3000)/>
 
 ## 기능 설명 
 ![image](https://github.com/user-attachments/assets/7aad05cf-7354-413a-b1ab-e61dd1e0b8ce)
